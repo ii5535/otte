@@ -17,21 +17,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 from django.core.exceptions import ImproperlyConfigured
 
-secret_file = os.path.join(BASE_DIR, "secrets.json")
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {0} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
+# secret_file = os.path.join(BASE_DIR, "secrets.json")
+# with open(secret_file) as f:
+#     secrets = json.loads(f.read())
+# def get_secret(setting, secrets=secrets):
+#     try:
+#         return secrets[setting]
+#     except KeyError:
+#         error_msg = "Set the {0} environment variable".format(setting)
+#         raise ImproperlyConfigured(error_msg)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = "django-insecure-n$qc)gu5ts%8%uv9e8nfbu9jd^-@5!1f%h0!t0hzzl2s*jda_#"#get_secret("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -133,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_URL = "/media/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
